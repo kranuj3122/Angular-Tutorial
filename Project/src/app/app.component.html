@@ -1,0 +1,75 @@
+<!-- style binding -->
+<div>
+  <h1>style-binding</h1>
+  <h2 [style.color]="'orange'">Style binding</h2>
+  <h2 [style.color]="hasError ? 'red' : 'green'">Style binding 2</h2>
+  <h2 [style.color]="color">Style binding 3</h2>
+  <h2 [ngStyle]="multipleStyle">Style binding</h2>
+</div>
+
+<!-- event-binding  -->
+<div>
+  <h1>event-binding</h1>
+  <button (click)="onClick()">change name</button><br />
+  <button (click)="name = 'laddoo'">change name 2</button><br />
+  <button (click)="name = $event.type">change name 3</button><br />
+  <h3>Welcome {{ name }}</h3>
+</div>
+
+<!-- template reference variable -->
+<div>
+  <h1>template reference variable</h1>
+  <input #myInput type="text" /><br />
+  <button (click)="data = myInput.value">get input data</button><br />
+  <!-- <button (click)="getData(#myInput.value)">get input data2</button> -->
+  {{ data }}
+</div>
+
+<!-- two-way binding -->
+<div>
+  <h1>two-way binding</h1>
+  <input [(ngModel)]="val" type="text" /> <br />
+  {{ val }}
+</div>
+
+<!-- ng-If -->
+<div>
+  <h1>ngIf</h1>
+  <h3 *ngIf="true">Anuj</h3>
+  <h3 *ngIf="displayName; else elseBlock">Kumar</h3>
+  <h3 *ngIf="displayName; then ifBlock; else elseBlock">Kumar</h3>
+
+  <ng-template #ifBlock>
+    <h3>If wala Block</h3>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h3>else wala block</h3>
+  </ng-template>
+</div>
+
+<!-- ng-Switch -->
+<div>
+  <h1>ngSwitch</h1>
+  <div [ngSwitch]="color">
+    <h2 *ngSwitchCase="'red'">You picked red</h2>
+    <h2 *ngSwitchCase="'blue'">You picked blue</h2>
+    <h2 *ngSwitchCase="'green'">You picked green</h2>
+    <h2 *ngSwitchDefault>Pick again</h2>
+  </div>
+</div>
+
+<!-- ng-For -->
+<!-- index as i, odd as o, first as f, last as l, even as e -->
+<div>
+  <h1>ngFor</h1>
+  <div *ngFor="let color of colors; index as i">
+    <h1>{{ i }} {{ color }}</h1>
+  </div>
+</div>
+
+<!-- component interaction -->
+<div>
+  <h1>component interaction</h1>
+  <h2>{{ message }}</h2>
+  <app-test (childEvent)="message = $event" [parentData]="name"></app-test>
+</div>
