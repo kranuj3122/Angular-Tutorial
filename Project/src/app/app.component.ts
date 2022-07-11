@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  public date = new Date();
+  public title = 'Project';
   public hasError = false;
   public color = 'orange';
   public multipleStyle = {
@@ -23,5 +26,30 @@ export class AppComponent {
   public val = '';
   public displayName = true;
   public colors = ['red', 'blue', 'green', 'orange', 'yellow'];
-  public message = "";
+  public message = '';
+
+  public formData: any = {};
+  getFormdata(data: any) {
+    console.log(data);
+    this.formData = data;
+    console.log(this.formData);
+  }
+
+  myReactivForm = new FormGroup({
+    user: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
+  getFormdata2(data: any) {
+    console.table(data);
+  }
+
+  get userValidator() {
+    return this.myReactivForm.get('user');
+  }
+  get passwordValidator() {
+    return this.myReactivForm.get('password');
+  }
 }

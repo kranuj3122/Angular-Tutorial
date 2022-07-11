@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
     <input value="Anuj" type="text" [id]="myId" />
     <input [disabled]="false" value="kumar" type="text" id="{{ myId }}" />
     <input bind-disabled="true" value="kumar" type="text" id="{{ myId }}" />
+    <br>
 
     // class binding
     <h2 [class]="myClass">Welcome {{ name }}</h2>
@@ -42,7 +43,7 @@ export class NewComponentComponent implements OnInit {
   public name = 'Anuj';
   public myId = 'testId';
   public myClass = 'success-text';
-  public hasError = true;
+  public hasError = false;
   public isSpecial = true;
   public multipleClass = {
     'success-text': !this.hasError,
