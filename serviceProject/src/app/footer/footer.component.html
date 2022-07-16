@@ -1,0 +1,16 @@
+<div>
+  <p>footer works!</p>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.email }}
+    </li>
+  </ul>
+  <div>
+    <h3>api data</h3>
+    <ul *ngFor="let api of apis">
+      <li *ngIf="api.id >= 198">
+        {{ api.title }}
+      </li>
+    </ul>
+  </div>
+</div>

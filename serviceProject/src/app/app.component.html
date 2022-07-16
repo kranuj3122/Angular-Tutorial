@@ -1,0 +1,15 @@
+<h1>Services</h1>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }}
+  </li>
+</ul>
+<div>
+  <h3>api data</h3>
+  <ul *ngFor="let api of apis">
+    <li *ngIf="api.id >= 195">
+      {{ api.id }}
+    </li>
+  </ul>
+</div>
+<app-footer></app-footer>

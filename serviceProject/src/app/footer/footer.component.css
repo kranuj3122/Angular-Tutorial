@@ -1,0 +1,8 @@
+div {
+  width: 98%;
+  padding: 5%;
+
+  background-color: skyblue;
+  position: absolute;
+  bottom: 0;
+}
